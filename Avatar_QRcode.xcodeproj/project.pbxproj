@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E620C5451D83EF7E0045663A /* showme.png in Resources */ = {isa = PBXBuildFile; fileRef = E620C5441D83EF7E0045663A /* showme.png */; };
 		E696B0951D83AC8500EF618E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E696B0941D83AC8500EF618E /* main.m */; };
 		E696B0981D83AC8500EF618E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E696B0971D83AC8500EF618E /* AppDelegate.m */; };
 		E696B09B1D83AC8500EF618E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E696B09A1D83AC8500EF618E /* ViewController.m */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E620C5441D83EF7E0045663A /* showme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showme.png; sourceTree = "<group>"; };
 		E696B0901D83AC8500EF618E /* Avatar_QRcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avatar_QRcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E696B0941D83AC8500EF618E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E696B0961D83AC8500EF618E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,9 +86,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E620C5431D83EF560045663A /* PartIPhotographs */ = {
+			isa = PBXGroup;
+			children = (
+				E620C5441D83EF7E0045663A /* showme.png */,
+			);
+			path = PartIPhotographs;
+			sourceTree = "<group>";
+		};
 		E696B0871D83AC8400EF618E = {
 			isa = PBXGroup;
 			children = (
+				E620C5431D83EF560045663A /* PartIPhotographs */,
 				E696B0921D83AC8500EF618E /* Avatar_QRcode */,
 				E696B0AC1D83AC8500EF618E /* Avatar_QRcodeTests */,
 				E696B0B71D83AC8500EF618E /* Avatar_QRcodeUITests */,
@@ -263,6 +274,7 @@
 			files = (
 				E696B0A31D83AC8500EF618E /* LaunchScreen.storyboard in Resources */,
 				E696B0A01D83AC8500EF618E /* Assets.xcassets in Resources */,
+				E620C5451D83EF7E0045663A /* showme.png in Resources */,
 				E696B09E1D83AC8500EF618E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +530,7 @@
 				E696B0BF1D83AC8500EF618E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E696B0C01D83AC8500EF618E /* Build configuration list for PBXNativeTarget "Avatar_QRcodeTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +539,7 @@
 				E696B0C21D83AC8500EF618E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E696B0C31D83AC8500EF618E /* Build configuration list for PBXNativeTarget "Avatar_QRcodeUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +548,7 @@
 				E696B0C51D83AC8500EF618E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
