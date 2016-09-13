@@ -13,14 +13,14 @@
  *  二维码添加头像
  *
  *  @param bgImage     背景（二维码）
- *  @param avatarImage  头像
+ *  @param logoImage  logo
  *  @param size        绘制区域大小
  *
  *  @return newImage
  */
-+ (UIImage *)imagewithBGImage:(UIImage *)bgImage addAvatarImage:(UIImage *)avatarImage ofTheSize:(CGSize)size
++ (UIImage *)imagewithBgImage:(UIImage *)bgImage addLogoImage:(UIImage *)LogoImage ofTheSize:(CGSize)size;
 {
-    if (avatarImage == nil) {
+    if (LogoImage == nil) {
         return bgImage;
     }
     BOOL opaque = 1.0;
@@ -32,7 +32,7 @@
     CGFloat avatarWidth = (size.width/4.0);
     CGFloat avatarHeight = avatarWidth;
     //MARK:-调用一个新的切割绘图方法 crop image add cornerRadius  (裁切头像图片为圆角，并添加bored   返回一个newimage)
-    avatarImage = [UIImage clipCornerRadius:avatarImage withSize:CGSizeMake(avatarWidth, avatarHeight)];
+    LogoImage = [UIImage clipCornerRadius:LogoImage withSize:CGSizeMake(avatarWidth, avatarHeight)];
     // 设置头像的位置信息
     CGPoint position = CGPointMake(size.width/2.0, size.height/2.0);
     CGRect avatarRect = CGRectMake(position.x-(avatarWidth/2.0), position.y-(avatarHeight/2.0), avatarWidth, avatarHeight);
@@ -47,8 +47,8 @@
         CGContextScaleCTM(context, 1, -1);
         // 根据 bgRect 用二维码填充视图
         CGContextDrawImage(context, bgRect, bgImage.CGImage);
-        //  根据newAvatarImage 填充头像区域
-        CGContextDrawImage(context, avatarRect, avatarImage.CGImage);
+        //  根据newLogoImage 填充头像区域
+        CGContextDrawImage(context, avatarRect, LogoImage.CGImage);
         
     }CGContextRestoreGState(context);// 提交画布
     // 从画布中提取图片
