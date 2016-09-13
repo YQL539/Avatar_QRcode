@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E620C5451D83EF7E0045663A /* showme.png in Resources */ = {isa = PBXBuildFile; fileRef = E620C5441D83EF7E0045663A /* showme.png */; };
 		E696B0951D83AC8500EF618E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E696B0941D83AC8500EF618E /* main.m */; };
 		E696B0981D83AC8500EF618E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E696B0971D83AC8500EF618E /* AppDelegate.m */; };
 		E696B09B1D83AC8500EF618E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E696B09A1D83AC8500EF618E /* ViewController.m */; };
@@ -18,6 +17,7 @@
 		E696B0B91D83AC8500EF618E /* Avatar_QRcodeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E696B0B81D83AC8500EF618E /* Avatar_QRcodeUITests.m */; };
 		E696B0C91D83ACB900EF618E /* UIImage+Avatar.m in Sources */ = {isa = PBXBuildFile; fileRef = E696B0C81D83ACB900EF618E /* UIImage+Avatar.m */; };
 		E696B0CE1D83AEEA00EF618E /* ShowQvaQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E696B0CD1D83AEEA00EF618E /* ShowQvaQRViewController.m */; };
+		E6F6DC151D879BBC00D7E0AC /* showme.png in Resources */ = {isa = PBXBuildFile; fileRef = E6F6DC141D879BBC00D7E0AC /* showme.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E620C5441D83EF7E0045663A /* showme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showme.png; sourceTree = "<group>"; };
 		E696B0901D83AC8500EF618E /* Avatar_QRcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avatar_QRcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E696B0941D83AC8500EF618E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E696B0961D83AC8500EF618E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		E696B0C81D83ACB900EF618E /* UIImage+Avatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Avatar.m"; sourceTree = "<group>"; };
 		E696B0CC1D83AEEA00EF618E /* ShowQvaQRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowQvaQRViewController.h; sourceTree = "<group>"; };
 		E696B0CD1D83AEEA00EF618E /* ShowQvaQRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowQvaQRViewController.m; sourceTree = "<group>"; };
+		E6F6DC141D879BBC00D7E0AC /* showme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showme.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 		E620C5431D83EF560045663A /* PartIPhotographs */ = {
 			isa = PBXGroup;
 			children = (
-				E620C5441D83EF7E0045663A /* showme.png */,
+				E6F6DC141D879BBC00D7E0AC /* showme.png */,
 			);
 			path = PartIPhotographs;
 			sourceTree = "<group>";
@@ -272,9 +272,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6F6DC151D879BBC00D7E0AC /* showme.png in Resources */,
 				E696B0A31D83AC8500EF618E /* LaunchScreen.storyboard in Resources */,
 				E696B0A01D83AC8500EF618E /* Assets.xcassets in Resources */,
-				E620C5451D83EF7E0045663A /* showme.png in Resources */,
 				E696B09E1D83AC8500EF618E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
