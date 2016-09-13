@@ -61,24 +61,25 @@
 + (UIImage *)clipCornerRadius:(UIImage *)image withSize:(CGSize) size
 {
     // 白色border的宽度
-    CGFloat outerWidth = 2.0;
+    CGFloat outerWidth = size.width/15.0;
     // 黑色border的宽度
-    CGFloat innerWidth = 0.3;
-    // 圆角这个就是我觉着的适合的一个值 ，单价可以自行改
+    CGFloat innerWidth = outerWidth/10.0;
+    // 圆角这个就是我觉着的适合的一个值 ，可以自行改
     CGFloat corenerRadius = size.width/5.0;
-    CGRect tempAvatarRect = CGRectMake(0.5, 0.5, size.width-1,size.height-1);
     // 为context创建一个区域
-    UIBezierPath *avatarPath = [UIBezierPath bezierPathWithRoundedRect:tempAvatarRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(corenerRadius, corenerRadius)];
+    CGRect areaRect = CGRectMake(0, 0, size.width, size.height);
+    UIBezierPath *areaPath = [UIBezierPath bezierPathWithRoundedRect:areaRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(corenerRadius, corenerRadius)];
+    
     // 因为UIBezierpath划线是双向扩展的 初始位置就不会是（0，0）
     // origin position
     CGFloat outerOrigin = outerWidth/2.0;
-    CGFloat innerOrigin = (outerWidth*2+innerWidth)/2.0-innerWidth/4;
-    CGRect outerRect = CGRectMake(outerOrigin, outerOrigin, size.width-outerWidth, size.height-outerWidth);
-    CGRect innerRect = CGRectMake(innerOrigin, innerOrigin, size.width-innerOrigin*2.0, size.height - innerOrigin*2.0);
+    CGFloat innerOrigin = innerWidth/2.0 + outerOrigin/1.2;
+    CGRect outerRect = CGRectInset(areaRect, outerOrigin, outerOrigin);
+    CGRect innerRect = CGRectInset(outerRect, innerOrigin, innerOrigin);
     //  外层path
-    UIBezierPath *outerPath = [UIBezierPath bezierPathWithRoundedRect:outerRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(corenerRadius, corenerRadius)];
+    UIBezierPath *outerPath = [UIBezierPath bezierPathWithRoundedRect:outerRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(outerRect.size.width/5.0, outerRect.size.width/5.0)];
     //  内层path
-    UIBezierPath *innerPath = [UIBezierPath bezierPathWithRoundedRect:innerRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(corenerRadius, corenerRadius)];
+    UIBezierPath *innerPath = [UIBezierPath bezierPathWithRoundedRect:innerRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(innerRect.size.width/5.0, innerRect.size.width/5.0)];
     // 创建上下文
     UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -87,24 +88,24 @@
         CGContextTranslateCTM(context, 0, size.height);
         CGContextScaleCTM(context, 1, -1);
         // context  添加 区域path -> 进行裁切画布
-        CGContextAddPath(context, avatarPath.CGPath);
+        CGContextAddPath(context, areaPath.CGPath);
         CGContextClip(context);
         // context 添加 背景颜色，避免透明背景会展示后面的二维码不美观的。（当然也可以对想遮住的区域进行clear操作，但是我当时写的时候还没有想到）
-        CGContextAddPath(context, avatarPath.CGPath);
+        CGContextAddPath(context, areaPath.CGPath);
         UIColor *fillColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
         CGContextSetFillColorWithColor(context, fillColor.CGColor);
         CGContextFillPath(context);
         // context 执行画头像
-        CGContextDrawImage(context, tempAvatarRect, image.CGImage);
+        CGContextDrawImage(context, innerRect, image.CGImage);
         // context 添加白色的边框 -> 执行填充白色画笔
         CGContextAddPath(context, outerPath.CGPath);
-        CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
-        CGContextSetLineWidth(context, 2.0);
+        CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1].CGColor);
+        CGContextSetLineWidth(context, outerWidth);
         CGContextStrokePath(context);
         // context 添加黑色的边界假象边框 -> 执行填充黑色画笔
         CGContextAddPath(context, innerPath.CGPath);
         CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
-        CGContextSetLineWidth(context, 0.25);
+        CGContextSetLineWidth(context, innerWidth);
         CGContextStrokePath(context);
 
     }CGContextRestoreGState(context);
