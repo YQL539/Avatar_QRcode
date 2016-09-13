@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     UIImage *qrcodeImage = [UIImage imageNamed:@"qrcode"];
     UIImage *avatarImage = [UIImage imageNamed:@"avatar"];
-    _avatatQRcode.image = [UIImage imagewithBGImage:qrcodeImage addAvatarImage:avatarImage ofTheSize:_avatatQRcode.frame.size];
+    _avatatQRcode.image = [UIImage imagewithBgImage:qrcodeImage addLogoImage:avatarImage ofTheSize:_avatatQRcode.frame.size];
     
 }
 
